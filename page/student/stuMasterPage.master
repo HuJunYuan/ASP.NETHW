@@ -1,0 +1,25 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="stuMasterPage.master.cs" Inherits="page_student_stuMasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>(学生)学生信息管理系统</title>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div class="container-fluid">
+    <asp:Image runat="server" ID = "head" ImageUrl="~/studentlogo1.png" Width="80%" />
+        <asp:ContentPlaceHolder id="nav" runat="server">
+        
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder id="content" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>

@@ -21,12 +21,12 @@
    <!-- zhe li shi daohang lan-->
 <p class="text-center h1" style="margin-top:80px;">登录</p>
 <div class="form-group col-lg-5">
-    <asp:TextBox ID="name" runat="server" class="form-control input-lg col-lg-offset-9" style="margin-top:15px;" placeholder="请输入账号"></asp:TextBox>
-    <asp:TextBox ID="password" runat="server" class="form-control input-lg col-lg-offset-9" style="margin-top:15px;" placeholder="请输入账号"></asp:TextBox>
+    <asp:TextBox ID="name" runat="server" class="form-control input-lg col-lg-offset-9" style="margin-top:15px;" placeholder="请输入账号（学生请输入学号）"></asp:TextBox>
+    <asp:TextBox ID="password" runat="server" class="form-control input-lg col-lg-offset-9" style="margin-top:15px;" placeholder="请输入密码"></asp:TextBox>
     <asp:DropDownList runat="server" ID="who" class="form-control input-lg col-lg-offset-9" style="width:100px; margin-top:15px;">
         <asp:ListItem Value="学生">学生</asp:ListItem>
         <asp:ListItem Value="家长">家长</asp:ListItem>
-        <asp:ListItem Value="管理员">管理员</asp:ListItem>
+        <asp:ListItem Value="admin">管理员</asp:ListItem>
     </asp:DropDownList>
   </div>
   <div>

@@ -43,10 +43,13 @@ public partial class page_admin_add : System.Web.UI.Page
             cmd.Parameters.AddWithValue("@Clan", k);
             
             cmd.Connection = conn;
+            SqlCommand ins = new SqlCommand("insert into users(username,password,iden) values( @stuNum,'12345','学生')",conn);
+            ins.Parameters.AddWithValue("@stuNum", b);
             conn.Open();
             int m = Convert.ToInt32(cmd.ExecuteNonQuery());
+            int j = Convert.ToInt32(ins.ExecuteNonQuery());
             conn.Close();
-            if (m == 1)
+            if (m == 1&&j==1)
             {
                 Response.Redirect("./add.aspx");
             }

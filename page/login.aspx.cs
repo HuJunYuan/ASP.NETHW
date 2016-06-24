@@ -15,21 +15,19 @@ public partial class page_login : System.Web.UI.Page
     }
     protected void submit_Click(object sender, EventArgs e)
     {
-        SqlCommand cmd = new SqlCommand();
         string a = name.Text.ToString().Trim();
         string b = password.Text.ToString().Trim();
-        string c = who.SelectedValue;
-        switch (c)
+        string sel = who.SelectedItem.Value.ToString();
+        SqlCommand cmd = new SqlCommand();
+        switch (sel)
         {
-            case "学生": cmd.CommandText = "select count(*) from user where 账号= @name and 密码 = @psw and 身份='学生'"; break;
-            case "管理员": cmd.CommandText = "select count(*) from admin where username= @name and password = @psw "; break;
-            case "家长": cmd.CommandText = "select count(*) from user where 账号= @name and 密码 = @psw and 身份='家长'"; break;
+            case "admin": cmd.CommandText = "select count(*) from admin where username= @name and password = @psw "; break;
+            case "学生": cmd.CommandText = "select count(*) from users where username= @name and password = @psw and iden = @ide"; break;
+            case "家长": cmd.CommandText = "select count(*) from users where username= @name and password = @psw and iden = @ide"; break;
         }
-
-        
-       
         cmd.Parameters.AddWithValue("@name", a);
         cmd.Parameters.AddWithValue("@psw", b);
+        cmd.Parameters.AddWithValue("@ide", who.SelectedItem.Value.ToString());
         cmd.Connection = conn;
         conn.Open();
         int i = Convert.ToInt32(cmd.ExecuteScalar());
@@ -37,7 +35,13 @@ public partial class page_login : System.Web.UI.Page
         if (i == 1)
         {
             Session["user"] = a;
-            Response.Redirect("./admin/homepage.aspx");
+            switch (sel)
+            {
+                case "admin": Response.Redirect("./admin/homepage.aspx"); break;
+                case "学生": Response.Redirect("./student/homepage.aspx"); break;
+                case "家长": Response.Redirect("./admin/homepage.aspx"); break;
+            }
+            
         }
         else
         {

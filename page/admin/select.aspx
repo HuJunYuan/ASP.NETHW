@@ -8,6 +8,7 @@
  	                <li  class="active"><a href="./select.aspx">信息查询</a></li>
  	                <li><a href="./delete.aspx">删除信息</a></li>
  	                <li><a href="./add.aspx">增添信息</a></li>
+                    <li><a href="./addscore.aspx">成绩录入</a></li>
                     <li><a href="../login.aspx">退出</a></li>
                 </ul>
 	        </div>
